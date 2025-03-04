@@ -1,0 +1,44 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+.label {
+  @include flex(column, flex-start, flex-start);
+  @include bodyS();
+  gap: 4px;
+
+  &:not(:has(.hidden)) {
+    color: $red;
+  }
+
+  .containerInput {
+    @include flex(row, flex-start, center);
+    @include focused();
+    width: 100%;
+    border: 1px solid $borders;
+    border-radius: 8px;
+    padding: 12px 16px;
+    gap: 12px;
+
+    &:not(:has(.hidden)) {
+      border-color: $red;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .input {
+      @include bodyM();
+      width: 100%;
+    }
+
+    .alert {
+      white-space: nowrap;
+      color: $red;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+}

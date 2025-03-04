@@ -1,0 +1,43 @@
+@use "./variables.scss" as *;
+@use "./mixin.scss" as *;
+
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+
+  height: 100%;
+  max-height: 100vh;
+}
+
+body {
+  @include font();
+  color: $grey-dark;
+  background: $grey-dark;
+  background: $grey-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 32px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0px;
+}
