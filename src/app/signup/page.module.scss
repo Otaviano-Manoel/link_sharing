@@ -1,0 +1,14 @@
+@use "@/styles/auth.scss";
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.page {
+  .containerForm {
+    .form {
+      .message {
+        @include bodyS();
+        color: $grey;
+      }
+    }
+  }
+}

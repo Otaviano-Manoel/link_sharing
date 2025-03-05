@@ -9,6 +9,19 @@
   align-items: $align;
 }
 
+@mixin image-mask($mask, $width, $height) {
+  -webkit-mask-image: url("../../public/" + $mask);
+  mask-image: url("../../public/" + $mask);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  width: $width;
+  height: $height;
+}
+
 @mixin focused() {
   &:focus-within {
     @include _shadow-selection();

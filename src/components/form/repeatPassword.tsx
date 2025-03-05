@@ -2,15 +2,11 @@ import Image from "next/image";
 import React from "react";
 import styles from "./formInput.module.scss";
 
-interface PasswordInputProps {
-  placeholder: string;
-}
-
-const PasswordInput = (props: PasswordInputProps) => {
+const RepeatPassword = () => {
   return (
     <div>
-      <label htmlFor="password" className={styles.label}>
-        Password
+      <label htmlFor="repeatPassword" className={styles.label}>
+        Confirm password
         <span className={styles.containerInput}>
           <Image
             className={styles.icon}
@@ -21,10 +17,10 @@ const PasswordInput = (props: PasswordInputProps) => {
           />
           <input
             className={styles.input}
-            type="password"
-            name="password"
-            id="password"
-            placeholder={props.placeholder}
+            type="repeatPassword"
+            name="repeatPassword"
+            id="repeatPassword"
+            placeholder="At least 8 characters"
             minLength={8}
           />
           <p className={`${styles.alert} ${styles.hidden}`}>
@@ -36,4 +32,4 @@ const PasswordInput = (props: PasswordInputProps) => {
   );
 };
 
-export default PasswordInput;
+export default RepeatPassword;
