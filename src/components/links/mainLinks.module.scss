@@ -1,0 +1,22 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.main {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  column-gap: 24px;
+  margin: 0px 24px 24px;
+}
+
+@media (max-width: $tablet) {
+  .main {
+    @include flex(row, auto, auto);
+  }
+}
+
+@media (max-width: $mobile) {
+  .main {
+    column-gap: 0px;
+    margin: 16px;
+  }
+}

@@ -24,7 +24,7 @@
 
 @mixin focused() {
   &:focus-within {
-    @include _shadow-selection();
+    @include shadow-selection();
     border: 1px solid $purple;
   }
 }
@@ -34,26 +34,26 @@
 }
 
 @mixin headingM() {
-  @include _typography(32px, bold);
+  @include _typography(2rem, bold);
 }
 
 @mixin headingXS() {
-  @include _typography(24px, bold);
+  @include _typography(1.5rem, bold);
 }
 
 @mixin headingS() {
-  @include _typography(16px, bold);
+  @include _typography(1em, bold);
 }
 
 @mixin bodyM() {
-  @include _typography(16px, normal);
+  @include _typography(1rem, normal);
 }
 
 @mixin bodyS() {
-  @include _typography(12px, normal);
+  @include _typography(0.75rem, normal);
 }
 
-@mixin _shadow-selection() {
+@mixin shadow-selection() {
   box-shadow: 0px 0px 32px rgba($color: $purple, $alpha: 0.25);
 }
 

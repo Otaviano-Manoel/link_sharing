@@ -1,0 +1,40 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.container {
+  padding: 20px 0px;
+  height: 83%;
+
+  .links {
+    height: 100%;
+    overflow-y: auto;
+
+    .li {
+      @include flex(column, auto, auto);
+      gap: 12px;
+      padding: 0px 16px;
+      .title {
+        @include flex(row, space-between, center);
+        gap: 8px;
+
+        .icon {
+          width: 12px;
+          height: 6px;
+        }
+
+        .h3 {
+          @include headingS();
+          @include flex(row, flex-start, center);
+          gap: 8px;
+          color: $grey;
+        }
+
+        .delete {
+          @include headingS();
+          color: $grey;
+          justify-self: flex-end;
+        }
+      }
+    }
+  }
+}

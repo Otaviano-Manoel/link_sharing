@@ -1,0 +1,80 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.customize {
+  display: grid;
+  border-radius: 12px;
+  grid-template-rows: auto 55vh auto;
+  background-color: $grey-light;
+
+  .header {
+    margin: 40px;
+
+    .title {
+      @include headingM();
+      color: $grey-dark;
+    }
+
+    .p {
+      @include bodyM();
+      color: $grey;
+    }
+  }
+
+  .list {
+    margin: 0px 40px 40px;
+
+    .add {
+      @include headingS();
+      width: 100%;
+      cursor: pointer;
+      color: $purple;
+      border: 1px solid $purple;
+      border-radius: 8px;
+      height: 48px;
+      width: 100%;
+      margin-bottom: 24px;
+
+      &:hover {
+        background-color: $purple-light;
+      }
+    }
+  }
+
+  .footer {
+    @include flex(row, flex-end);
+    padding: 24px 40px;
+    border-top: 1px solid $borders;
+    width: 100%;
+
+    .save {
+      @include headingS();
+      cursor: pointer;
+      opacity: 25%;
+      color: $white;
+      padding: 11px 27px;
+      background-color: $purple;
+      border-radius: 8px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .customize {
+    .header {
+      margin: 24px 24px 40px;
+    }
+
+    .list {
+      margin: 0px 24px 24px;
+    }
+
+    .footer {
+      padding: 16px;
+
+      .save {
+        width: 100%;
+      }
+    }
+  }
+}
