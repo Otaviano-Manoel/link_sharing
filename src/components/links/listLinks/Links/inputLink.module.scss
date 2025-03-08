@@ -5,8 +5,7 @@
   @include flex(column, auto, auto);
   gap: 4px;
   h .label {
-    @include bodyS();
-    color: $grey-dark;
+    @include bodyS($grey-dark);
   }
 
   .containerInput {
@@ -35,13 +34,11 @@
     }
 
     .input {
-      @include bodyM();
-      color: $grey-dark;
+      @include bodyM($grey-dark);
     }
 
     .alert {
-      @include bodyS();
-      color: $red;
+      @include bodyS($red);
       white-space: nowrap;
 
       &.error {

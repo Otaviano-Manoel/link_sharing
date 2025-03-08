@@ -2,7 +2,7 @@
 @use "@/styles/mixin.scss" as *;
 .label {
   @include flex(column, flex-start, flex-start);
-  @include bodyS();
+  @include bodyS($grey-dark);
   gap: 4px;
 
   &:not(:has(.hidden)) {
@@ -28,7 +28,7 @@
     }
 
     .input {
-      @include bodyM();
+      @include bodyM($grey-dark);
       width: 100%;
     }
 

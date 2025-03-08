@@ -17,11 +17,10 @@
     }
 
     .link {
-      @include headingS();
+      @include headingS($grey);
       @include flex();
       gap: 8px;
       white-space: nowrap;
-      color: $grey;
       padding: 11px 27px;
       border-radius: 8px;
 

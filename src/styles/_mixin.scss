@@ -29,32 +29,32 @@
   }
 }
 
+@mixin shadow-selection() {
+  box-shadow: 0px 0px 32px rgba($color: $purple, $alpha: 0.25);
+}
+
 @mixin font() {
   font-family: "Instrument Sans", sans-serif;
 }
 
-@mixin headingM() {
+@mixin headingM($color) {
   @include _typography(2rem, bold);
+  color: $color;
 }
 
-@mixin headingXS() {
-  @include _typography(1.5rem, bold);
-}
-
-@mixin headingS() {
+@mixin headingS($color) {
   @include _typography(1em, bold);
+  color: $color;
 }
 
-@mixin bodyM() {
+@mixin bodyM($color) {
   @include _typography(1rem, normal);
+  color: $color;
 }
 
-@mixin bodyS() {
+@mixin bodyS($color) {
   @include _typography(0.75rem, normal);
-}
-
-@mixin shadow-selection() {
-  box-shadow: 0px 0px 32px rgba($color: $purple, $alpha: 0.25);
+  color: $color;
 }
 
 @mixin _typography($font-size, $font-weight) {

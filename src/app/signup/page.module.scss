@@ -6,8 +6,7 @@
   .containerForm {
     .form {
       .message {
-        @include bodyS();
-        color: $grey;
+        @include bodyS($grey);
       }
     }
   }

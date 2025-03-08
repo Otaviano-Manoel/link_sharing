@@ -11,15 +11,13 @@
   }
 
   .title {
-    @include headingM();
+    @include headingM($grey-dark);
     text-align: center;
     margin-bottom: 24px;
-    color: $grey-dark;
   }
 
   .p {
-    @include bodyM();
-    color: $grey;
+    @include bodyM($grey);
     width: 64%;
     text-align: center;
     max-height: 100px;

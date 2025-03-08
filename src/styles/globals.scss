@@ -18,7 +18,7 @@ body {
   @include font();
   color: $grey-dark;
   background: $grey-dark;
-  //background: $grey-light;
+  background: $grey-light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

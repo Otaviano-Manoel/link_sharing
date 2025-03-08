@@ -27,11 +27,10 @@
       gap: 8px;
 
       .title {
-        @include headingM();
+        @include headingM($grey-dark);
       }
       .p {
-        @include bodyM();
-        color: $grey;
+        @include bodyM($grey);
       }
     }
 
@@ -41,11 +40,10 @@
       width: 100%;
 
       .submit {
-        @include headingS();
+        @include headingS($white);
         padding: 11px 27px;
         background-color: $purple;
         border-radius: 8px;
-        color: $white;
         cursor: pointer;
 
         &:hover {
@@ -54,9 +52,8 @@
       }
 
       .p {
-        @include bodyM();
+        @include bodyM($grey);
         justify-self: center;
-        color: $grey;
 
         .link {
           color: $purple;
@@ -79,11 +76,6 @@
     .containerForm {
       padding: 0px;
       background-color: transparent;
-      .header {
-        .title {
-          @include headingXS();
-        }
-      }
 
       .form {
         .p {

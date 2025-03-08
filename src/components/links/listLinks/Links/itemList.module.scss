@@ -1,0 +1,28 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.li {
+  @include flex(column, auto, auto);
+  gap: 12px;
+  padding: 0px 16px;
+  .title {
+    @include flex(row, space-between, center);
+    gap: 8px;
+
+    .icon {
+      width: 12px;
+      height: 6px;
+    }
+
+    .h3 {
+      @include headingS($grey);
+      @include flex(row, flex-start, center);
+      gap: 8px;
+    }
+
+    .delete {
+      @include headingS($grey);
+      justify-self: flex-end;
+    }
+  }
+}
