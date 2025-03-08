@@ -1,7 +1,7 @@
 import React from "react";
 import ListEmpty from "./listEmpty";
 import styles from "./listView.module.scss";
-import ListLinks from "./Links/listLinks";
+import ListLinks from "./listLinks";
 
 const ListView = () => {
   return (

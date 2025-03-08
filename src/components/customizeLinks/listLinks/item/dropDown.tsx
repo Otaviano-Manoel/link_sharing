@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./dropDown.module.scss";
+import { styledImage } from "@/constant/dynamicStyleMaskImage";
 
 const data = [
   { value: "apple", label: "Maçã", img: "/icon-github.svg" },
@@ -58,11 +59,7 @@ const DropDown = () => {
               }}
             >
               <div
-                style={
-                  {
-                    "--mask-img": `url('${element.img}')`,
-                  } as React.CSSProperties
-                }
+                style={styledImage(element.img)}
                 className={`${styles.img}`}
               />
 

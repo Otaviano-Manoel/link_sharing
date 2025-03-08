@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./listLinks.module.scss";
-import ItemList from "./itemList";
+import ItemList from "./item/itemList";
 
 const ListLinks = () => {
   return (

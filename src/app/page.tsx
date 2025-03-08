@@ -11,7 +11,7 @@ export default function Login() {
   const navigate = useRouter();
   const goHome = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    navigate.push("/home");
+    navigate.push("/links");
   };
 
   return (

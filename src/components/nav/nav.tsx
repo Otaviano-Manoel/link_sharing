@@ -4,15 +4,22 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "./nav.module.scss";
 import { useWindowSize } from "react-use";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
   const { width } = useWindowSize();
   const [logo, setLogo] = useState("/logo-devlinks-large.svg");
+  const [isLinks, setIsLinks] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (width <= 475) setLogo("/logo-devlinks-small.svg");
     else setLogo("/logo-devlinks-large.svg");
   }, [width]);
+
+  useEffect(() => {
+    setIsLinks(pathname === "/links");
+  }, [pathname]);
 
   return (
     <header className={styles.header}>
@@ -26,13 +33,20 @@ const Nav = () => {
           priority
         />
         <Link
-          href={""}
-          className={`${styles.link}  ${styles.links} ${styles.active}`}
+          href={"/links"}
+          className={`${styles.link}  ${styles.links} ${
+            isLinks ? styles.active : ""
+          }`}
         >
           <i className={styles.icon} />
           <p>Links</p>
         </Link>
-        <Link href={""} className={`${styles.link} ${styles.detail}`}>
+        <Link
+          href={"/profile"}
+          className={`${styles.link} ${styles.detail} ${
+            isLinks ? "" : styles.active
+          }`}
+        >
           <i className={`${styles.icon}`} />
           <p>Profile Details</p>
         </Link>

@@ -1,17 +1,6 @@
 @use "@/styles/variables.scss" as *;
 @use "@/styles/mixin.scss" as *;
 
-@mixin mask-image-dynamic() {
-  mask-image: var(--mask-img);
-  -webkit-mask-image: var(--mask-img);
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-}
-
 .container {
   @include flex(column, auto, auto);
   gap: 4px;
@@ -93,7 +82,6 @@
       cursor: pointer;
 
       .img {
-        @include mask-image-dynamic();
         width: 16px;
         height: 16px;
         background-color: $grey;

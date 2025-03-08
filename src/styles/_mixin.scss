@@ -37,8 +37,24 @@
   font-family: "Instrument Sans", sans-serif;
 }
 
+@mixin mask-image-dynamic() {
+  mask-image: var(--mask-img);
+  -webkit-mask-image: var(--mask-img);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
 @mixin headingM($color) {
   @include _typography(2rem, bold);
+  color: $color;
+}
+
+@mixin headingXM($color) {
+  @include _typography(1.2rem, bold);
   color: $color;
 }
 
@@ -49,6 +65,11 @@
 
 @mixin bodyM($color) {
   @include _typography(1rem, normal);
+  color: $color;
+}
+
+@mixin bodyXM($color) {
+  @include _typography(0.8rem, normal);
   color: $color;
 }
 
