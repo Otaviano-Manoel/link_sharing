@@ -23,6 +23,10 @@ const InputLink = () => {
           id="link"
           placeholder="e.g. https://www.github.com/johnappleseed"
         />
+
+        <p className={`${styles.alert} ${false ? "" : styles.error}`}>
+          {false ? "Can’t be empty" : "Please check the URL"}
+        </p>
       </div>
     </div>
   );

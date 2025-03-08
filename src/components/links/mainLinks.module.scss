@@ -10,12 +10,13 @@
 
 @media (max-width: $tablet) {
   .main {
-    @include flex(row, auto, auto);
+    @include flex(row, center, flex-start);
   }
 }
 
 @media (max-width: $mobile) {
   .main {
+    @include flex(row, auto, flex-start);
     column-gap: 0px;
     margin: 16px;
   }

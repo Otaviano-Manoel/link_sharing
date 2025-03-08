@@ -15,50 +15,62 @@ const DropDown = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.button} onClick={() => setIsOpen(!isOpen)}>
-        <div className={`${styles.containerOption} ${isOpen && styles.active}`}>
-          <div className={`${styles.option} ${styles.selected}`}>
+      <label className={styles.label} onClick={() => setIsOpen(!isOpen)}>
+        Platform
+      </label>
+      <div>
+        <button
+          className={styles.containerSelect}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className={`${styles.select} ${isOpen && styles.active}`}>
+            <div className={`${styles.option} ${styles.selected}`}>
+              <Image
+                className={styles.img}
+                src={options.img}
+                alt=""
+                height={20}
+                width={20}
+              />
+              <p className={styles.p}>{options.label}</p>
+            </div>
+
             <Image
-              className={styles.img}
-              src={options.img}
+              className={styles.arrow}
+              src={"/icon-chevron-down.svg"}
               alt=""
               height={20}
               width={20}
             />
-            <p className={styles.p}>{options.label}</p>
           </div>
+        </button>
 
-          <Image
-            className={styles.arrow}
-            src={"/icon-chevron-down.svg"}
-            alt=""
-            height={20}
-            width={20}
-          />
-        </div>
-      </button>
-
-      {isOpen && (
-        <div className={styles.containerHidden}>
+        <div className={`${styles.containerHidden} ${isOpen && styles.active}`}>
           {data.map((element) => (
-            <div key={element.label} className={styles.option}>
-              <div className={styles.mask}>
-                <div
-                  style={
-                    {
-                      "--mask-img": `url(../../../../public${element.img})`,
-                    } as React.CSSProperties
-                  }
-                  className={`${styles.img} hidden`}
-                />
-                <div className={styles.mask}></div>
-              </div>
+            <button
+              key={element.label}
+              className={`${styles.option} ${
+                element.label === options.label ? styles.selected : ""
+              }`}
+              onClick={() => {
+                setOptions(element);
+                setIsOpen(false);
+              }}
+            >
+              <div
+                style={
+                  {
+                    "--mask-img": `url('${element.img}')`,
+                  } as React.CSSProperties
+                }
+                className={`${styles.img}`}
+              />
 
-              <p className={styles.p}>{options.label}</p>
-            </div>
+              <p className={styles.p}>{element.label}</p>
+            </button>
           ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

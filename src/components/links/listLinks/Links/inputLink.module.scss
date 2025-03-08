@@ -1,0 +1,60 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.container {
+  @include flex(column, auto, auto);
+  gap: 4px;
+  h .label {
+    @include bodyS();
+    color: $grey-dark;
+  }
+
+  .containerInput {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid $borders;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:not(:has(.error)) {
+      border-color: $red;
+    }
+
+    &:focus-within:has(.error) {
+      @include shadow-selection();
+      border-color: $purple;
+    }
+
+    .icon {
+      height: 16px;
+      width: 16px;
+    }
+
+    .input {
+      @include bodyM();
+      color: $grey-dark;
+    }
+
+    .alert {
+      @include bodyS();
+      color: $red;
+      white-space: nowrap;
+
+      &.error {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    .containerInput {
+      padding-right: 5px;
+    }
+  }
+}
