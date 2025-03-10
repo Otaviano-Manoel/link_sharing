@@ -21,6 +21,7 @@
 
   .image {
     @include flex(column);
+    position: relative;
     gap: 8px;
     margin-bottom: 8px;
     border-radius: 12px;
@@ -31,16 +32,37 @@
     max-width: 193px;
     overflow: hidden;
 
+    .background {
+      position: absolute;
+      opacity: 0.5;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      &.hidden {
+        display: none;
+      }
+    }
+
     .icon {
-      width: 40px;
-      height: 40px;
+      @include image-mask("icon-upload-image.svg", 40px, 40px);
+      background-color: $purple;
+      z-index: 1;
+      &.existsImage {
+        background-color: $white;
+      }
     }
 
     .upload {
       @include headingS($purple);
+      z-index: 1;
+      &.existsImage {
+        color: $white;
+      }
     }
 
     .imageUser {
+      position: absolute;
       width: 100%;
       height: 100%;
     }

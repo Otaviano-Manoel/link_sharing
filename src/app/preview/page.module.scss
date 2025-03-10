@@ -1,0 +1,31 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+
+  .p {
+    @include headingS($grey-light);
+    @include flex();
+    gap: 8px;
+    position: fixed;
+    background-color: $grey-dark;
+    padding: 16px 24px;
+    justify-self: center;
+    border-radius: 12px;
+    bottom: 40px;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .page {
+    background-color: $white;
+  }
+}

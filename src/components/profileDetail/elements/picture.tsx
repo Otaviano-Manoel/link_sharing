@@ -8,21 +8,17 @@ const Picture = () => {
       <input className={styles.find} type="file" name="find" id="find" />
       <p className={styles.profile}>Profile picture</p>
       <label className={styles.image} htmlFor="find">
-        {true ? (
-          <>
-            <Image
-              className={styles.icon}
-              src={"/icon-upload-image.svg"}
-              alt=""
-              height={50}
-              width={50}
-            />
-            <p className={styles.upload}>+ Upload Image</p>
-          </>
-        ) : (
+        <>
+          <div className={`${styles.background} ${false && styles.hidden}`} />
+          <div className={`${styles.icon} ${true && styles.existsImage}`} />
+          <p className={`${styles.upload} ${true && styles.existsImage}`}>
+            + Upload Image
+          </p>
+        </>
+        {true && (
           <Image
             className={styles.imageUser}
-            src={"/logo-devlinks-small.svg"}
+            src={"/256x256.png"}
             alt=""
             height={100}
             width={100}

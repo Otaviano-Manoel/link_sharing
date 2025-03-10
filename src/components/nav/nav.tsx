@@ -50,7 +50,7 @@ const Nav = () => {
           <i className={`${styles.icon}`} />
           <p>Profile Details</p>
         </Link>
-        <Link href={""} className={`${styles.link} ${styles.preview}`}>
+        <Link href={"/preview"} className={`${styles.link} ${styles.preview}`}>
           <Image
             className={`${styles.icon}`}
             src={"/icon-preview-header.svg"}

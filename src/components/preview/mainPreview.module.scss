@@ -1,0 +1,57 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding-bottom: 40px;
+
+  .background {
+    position: absolute;
+    background-color: $purple;
+    border-radius: 0px 0px 32px 32px;
+    width: 100vw;
+    height: 35vh;
+    z-index: -1;
+  }
+
+  .nav {
+    @include flex(row, space-between);
+    margin: 24px;
+    padding: 16px 24px;
+    background-color: $white;
+    border-radius: 12px;
+
+    .link {
+      @include headingS($purple);
+      padding: 11px 27px;
+      border: 1px solid $purple;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: $purple-light;
+      }
+
+      &.share {
+        background-color: $purple;
+        color: $white;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    padding: 0px;
+    .background {
+      display: none;
+    }
+
+    .nav {
+      margin: 0px;
+      padding: 16px;
+      gap: 16px;
+      border-radius: 0px;
+    }
+  }
+}
