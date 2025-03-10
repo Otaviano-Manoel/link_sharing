@@ -1,0 +1,22 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.container {
+  background-color: $white;
+  padding: 40px;
+  border-radius: 8px;
+
+  .h1 {
+    @include headingM($grey-dark);
+  }
+
+  .p {
+    @include bodyM($grey);
+    margin-bottom: 40px;
+  }
+
+  .form {
+    @include flex(column, auto, auto);
+    gap: 24px;
+  }
+}
