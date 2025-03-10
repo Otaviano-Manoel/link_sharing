@@ -22,7 +22,9 @@ const EmailInput = () => {
             id="email"
             placeholder="e.g. alex@email.com"
           />
-          <p className={`${styles.alert} ${styles.hidden}`}>Can’t be empty</p>
+          <p className={`${styles.alert} ${true && styles.hidden}`}>
+            Can’t be empty
+          </p>
         </span>
       </label>
     </div>

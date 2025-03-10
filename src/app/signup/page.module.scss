@@ -1,13 +1,4 @@
-@use "@/styles/auth.scss";
-@use "@/styles/variables.scss" as *;
-@use "@/styles/mixin.scss" as *;
-
 .page {
-  .containerForm {
-    .form {
-      .message {
-        @include bodyS($grey);
-      }
-    }
-  }
+  width: 100%;
+  height: 100%;
 }

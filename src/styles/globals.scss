@@ -17,40 +17,9 @@ body {
 body {
   @include font();
   color: $grey-dark;
-  background: $grey-dark;
   background: $grey-light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-input {
-  background-color: transparent;
-  border-width: 0px;
-  outline: none;
-}
-
-button {
-  background-color: transparent;
-  border-width: 0px;
-}
-
-ul {
-  list-style: none;
-}
-
-select {
-  appearance: inherit;
 }
 
 @media (max-width: 768px) {

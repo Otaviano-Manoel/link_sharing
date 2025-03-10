@@ -1,26 +1,24 @@
 @use "@/styles/variables.scss" as *;
 @use "@/styles/mixin.scss" as *;
 
-.page {
+.container {
   @include flex(column);
+  gap: 41px;
   height: 100%;
 
   .logo {
-    min-width: 110px;
-    width: 100%;
-    max-width: 182.5px;
+    width: 182.5px;
     height: 40px;
-    margin-bottom: 51px;
   }
 
   .containerForm {
-    @include flex(column, auto, flex-start);
-    gap: 40px;
+    @include flex(column, flex-start, stretch);
     background-color: $white;
-    padding: 40px;
     width: 100%;
+    padding: 40px;
     max-width: 475px;
     border-radius: 12px;
+    gap: 40px;
 
     .header {
       @include flex(column, flex-start, flex-start);
@@ -35,14 +33,13 @@
     }
 
     .form {
-      display: grid;
+      @include flex(column, flex-start, stretch);
       gap: 24px;
-      width: 100%;
 
       .submit {
         @include headingS($white);
-        padding: 11px 27px;
         background-color: $purple;
+        padding: 11px 27px;
         border-radius: 8px;
         cursor: pointer;
 
@@ -53,11 +50,15 @@
 
       .p {
         @include bodyM($grey);
-        justify-self: center;
+        text-align: center;
 
         .link {
           color: $purple;
         }
+      }
+
+      .message {
+        @include bodyS($grey);
       }
     }
   }

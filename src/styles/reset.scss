@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  background-color: transparent;
+  border-width: 0px;
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border-width: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+select {
+  appearance: inherit;
+}

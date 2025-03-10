@@ -7,9 +7,9 @@
 
   .nav {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
-    align-items: center;
 
     .logo {
       width: 146px;
@@ -19,10 +19,10 @@
     .link {
       @include headingS($grey);
       @include flex();
-      gap: 8px;
       white-space: nowrap;
-      padding: 11px 27px;
+      gap: 8px;
       border-radius: 8px;
+      padding: 11px 27px;
 
       &.links {
         justify-self: flex-end;
