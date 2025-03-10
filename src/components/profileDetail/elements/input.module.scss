@@ -1,0 +1,56 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 16px;
+  justify-content: center;
+  align-items: center;
+
+  .label {
+    @include bodyM($grey);
+  }
+
+  .containerInput {
+    @include flex();
+    padding: 12px 16px;
+    border: 1px solid $borders;
+    border-radius: 8px;
+    gap: 12px;
+
+    &:not(:has(.hidden)) {
+      border-color: $red;
+    }
+
+    &:not(:has(.alert)) {
+      border-color: $borders;
+    }
+
+    .input {
+      @include bodyM($grey-dark);
+      width: 100%;
+    }
+
+    .alert {
+      @include bodyS($red);
+      white-space: nowrap;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 0px;
+
+    .label {
+      margin-bottom: 4px;
+    }
+  }
+}

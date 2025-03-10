@@ -16,7 +16,39 @@
   }
 
   .form {
-    @include flex(column, auto, auto);
-    gap: 24px;
+    .inputs {
+      @include flex(column, auto, auto);
+      padding: 20px;
+      gap: 12px;
+    }
+
+    .footer {
+      @include flex(row, flex-end);
+      padding: 24px 40px;
+      border-top: 1px solid $borders;
+      width: 100%;
+      margin-top: 40px;
+
+      .save {
+        @include headingS($white);
+        cursor: pointer;
+        padding: 11px 27px;
+        background-color: $purple;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    .form {
+      .footer {
+        padding: 16px;
+        .save {
+          width: 100%;
+        }
+      }
+    }
   }
 }

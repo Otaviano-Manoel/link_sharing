@@ -46,10 +46,13 @@
     .save {
       @include headingS($white);
       cursor: pointer;
-      opacity: 25%;
       padding: 11px 27px;
       background-color: $purple;
       border-radius: 8px;
+
+      &.disable {
+        opacity: 25%;
+      }
     }
   }
 }

@@ -9,9 +9,14 @@
   border-radius: 12px;
   align-items: center;
   padding: 20px;
+  margin-bottom: 24px;
 
   .profile {
     @include bodyM($grey);
+  }
+
+  .find {
+    display: none;
   }
 
   .image {

@@ -20,7 +20,7 @@ const ListView = () => {
         {true ? <ListLinks /> : <ListEmpty />}
       </div>
       <div className={styles.footer}>
-        <button className={styles.save} type="button">
+        <button className={`${styles.save} ${styles.disable}`} type="button">
           Save
         </button>
       </div>

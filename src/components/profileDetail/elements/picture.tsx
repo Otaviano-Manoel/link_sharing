@@ -5,8 +5,9 @@ import Image from "next/image";
 const Picture = () => {
   return (
     <div className={styles.picture}>
+      <input className={styles.find} type="file" name="find" id="find" />
       <p className={styles.profile}>Profile picture</p>
-      <div className={styles.image}>
+      <label className={styles.image} htmlFor="find">
         {true ? (
           <>
             <Image
@@ -27,7 +28,7 @@ const Picture = () => {
             width={100}
           />
         )}
-      </div>
+      </label>
       <p className={styles.info}>
         Image must be below 1024x1024px. Use PNG or JPG format.
       </p>
