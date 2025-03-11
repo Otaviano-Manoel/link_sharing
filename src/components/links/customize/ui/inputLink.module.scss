@@ -2,9 +2,10 @@
 @use "@/styles/mixin.scss" as *;
 
 .container {
-  @include flex(column, auto, auto);
+  @include flex(column, flex-start, stretch);
   gap: 4px;
-  h .label {
+
+  .label {
     @include bodyS($grey-dark);
   }
 
@@ -12,7 +13,6 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: center;
     gap: 12px;
     padding: 12px 16px;
     border: 1px solid $borders;

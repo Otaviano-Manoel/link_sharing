@@ -2,13 +2,13 @@
 import React from "react";
 import styles from "./page.module.scss";
 import Nav from "@/components/nav/nav";
-import MainLinks from "@/components/customizeLinks/mainLinks";
+import Main from "@/components/links/main";
 
 const Page = () => {
   return (
     <div className={styles.page}>
       <Nav />
-      <MainLinks />
+      <Main />
     </div>
   );
 };

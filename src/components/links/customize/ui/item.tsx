@@ -2,9 +2,9 @@ import Image from "next/image";
 import React from "react";
 import DropDown from "./dropDown";
 import InputLink from "./inputLink";
-import styles from "./itemList.module.scss";
+import styles from "./item.module.scss";
 
-const ItemList = () => {
+const Item = () => {
   return (
     <li className={styles.li}>
       <div className={styles.title}>
@@ -30,4 +30,4 @@ const ItemList = () => {
   );
 };
 
-export default ItemList;
+export default Item;

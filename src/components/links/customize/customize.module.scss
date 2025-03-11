@@ -4,11 +4,10 @@
 .customize {
   border-radius: 12px;
   background-color: $white;
-  background-color: red;
-  height: 100%;
-  max-height: 100vh;
 
   .header {
+    @include flex(column, flex-start, flex-start);
+    gap: 6px;
     margin: 40px;
 
     .title {
@@ -22,17 +21,17 @@
 
   .list {
     margin: 0px 40px 40px;
+    max-height: 540px;
     display: grid;
     grid-template-rows: auto 1fr;
-    overflow: hidden;
+    row-gap: 24px;
 
     .add {
       @include headingS($purple);
       cursor: pointer;
       border: 1px solid $purple;
       border-radius: 8px;
-      height: 46px;
-      width: 100%;
+      padding: 11px 27px;
 
       &:hover {
         background-color: $purple-light;

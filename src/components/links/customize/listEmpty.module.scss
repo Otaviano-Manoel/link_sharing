@@ -3,6 +3,7 @@
 
 .empty {
   padding: 20px;
+  max-height: 540px;
 
   .img {
     margin-bottom: 40px;
@@ -18,9 +19,7 @@
 
   .p {
     @include bodyM($grey);
-    width: 64%;
     text-align: center;
-    max-height: 100px;
     margin: 0px auto;
   }
 }

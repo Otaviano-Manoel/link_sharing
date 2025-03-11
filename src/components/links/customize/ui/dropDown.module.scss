@@ -14,8 +14,11 @@
     width: 100%;
 
     .select {
-      @include flex(row, space-between, center);
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      align-items: center;
       cursor: pointer;
+      column-gap: 12px;
       background-color: $white;
       padding: 12px 16px;
       border-radius: 8px;
@@ -34,21 +37,17 @@
         }
       }
 
-      .option.selected {
-        @include flex();
-        gap: 12px;
+      .img {
+        width: 16px;
+        height: 16px;
+      }
 
-        .img {
-          width: 16px;
-          height: 16px;
-        }
-
-        .p {
-          @include bodyM($grey-dark);
-        }
+      .p {
+        @include bodyM($grey-dark);
       }
 
       .arrow {
+        justify-self: flex-end;
         width: 14px;
         height: 14px;
         transition: rotate 0.3s ease-in-out;
@@ -62,7 +61,6 @@
     display: none;
     z-index: 1;
     margin-top: 16px;
-    gap: 12px;
     border-radius: 8px;
     border: 1px solid $borders;
     transition: height 0.3s ease-in-out;

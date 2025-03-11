@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./mobileView.module.scss";
+import styles from "./mobile.module.scss";
 import Item from "./item";
 
-const MobileView = () => {
+const Mobile = () => {
   return (
     <div className={styles.container}>
       <div className={styles.mobile}>
@@ -29,4 +29,4 @@ const MobileView = () => {
   );
 };
 
-export default MobileView;
+export default Mobile;

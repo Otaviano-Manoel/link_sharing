@@ -25,16 +25,14 @@ const DropDown = () => {
           onClick={() => setIsOpen(!isOpen)}
         >
           <div className={`${styles.select} ${isOpen && styles.active}`}>
-            <div className={`${styles.option} ${styles.selected}`}>
-              <Image
-                className={styles.img}
-                src={options.img}
-                alt=""
-                height={20}
-                width={20}
-              />
-              <p className={styles.p}>{options.label}</p>
-            </div>
+            <Image
+              className={styles.img}
+              src={options.img}
+              alt=""
+              height={20}
+              width={20}
+            />
+            <p className={styles.p}>{options.label}</p>
 
             <Image
               className={styles.arrow}

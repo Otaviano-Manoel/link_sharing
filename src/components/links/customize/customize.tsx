@@ -1,9 +1,9 @@
 import React from "react";
 import ListEmpty from "./listEmpty";
-import styles from "./CustomizeLinks.module.scss";
-import ListLinks from "./listLinks";
+import styles from "./customize.module.scss";
+import List from "./list";
 
-const CustomizeLinks = () => {
+const Customize = () => {
   return (
     <div className={styles.customize}>
       <div className={styles.header}>
@@ -17,7 +17,7 @@ const CustomizeLinks = () => {
         <button className={styles.add} type="button">
           + Add new link
         </button>
-        {true ? <ListLinks /> : <ListEmpty />}
+        {true ? <List /> : <ListEmpty />}
       </div>
       <div className={styles.footer}>
         <button className={`${styles.save} ${styles.disable}`} type="button">
@@ -28,4 +28,4 @@ const CustomizeLinks = () => {
   );
 };
 
-export default CustomizeLinks;
+export default Customize;

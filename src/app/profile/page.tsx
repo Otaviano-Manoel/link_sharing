@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "./page.module.scss";
 import Nav from "@/components/nav/nav";
-import MainProfile from "@/components/profileDetail/mainProfile";
+import MainProfile from "@/components/profile/mainProfile";
 
 const Page = () => {
   return (

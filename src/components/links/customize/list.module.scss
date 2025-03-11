@@ -2,8 +2,6 @@
 @use "@/styles/mixin.scss" as *;
 
 .container {
-  padding-top: 24px;
-  height: 40vh;
   overflow: auto;
   .links {
     @include flex(column, center, stretch);

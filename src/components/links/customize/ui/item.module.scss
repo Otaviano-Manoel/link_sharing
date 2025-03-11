@@ -3,6 +3,7 @@
 
 .li {
   @include flex(column, flex-start, stretch);
+  background-color: $grey-light;
   gap: 12px;
   padding: 20px;
 
@@ -22,7 +23,6 @@
 
     .delete {
       @include headingS($grey);
-      justify-self: flex-end;
     }
   }
 }
