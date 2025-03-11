@@ -2,7 +2,6 @@
 @use "@/styles/mixin.scss" as *;
 
 .page {
-  display: grid;
-  grid-template-rows: auto 1fr;
+  padding: 24px;
   height: 100%;
 }

@@ -1,13 +1,13 @@
 import React from "react";
-import ListView from "./listLinks/listView";
-import MobileView from "../mobileView/mobileView";
+import MobileView from "./mobileView/mobileView";
 import styles from "./mainLinks.module.scss";
+import CustomizeLinks from "./edit/customizeLInks";
 
 const MainLinks = () => {
   return (
     <main className={styles.main}>
       <MobileView />
-      <ListView />
+      <CustomizeLinks />
     </main>
   );
 };

@@ -7,6 +7,7 @@ const ListLinks = () => {
     <div className={styles.container}>
       <ul className={styles.links}>
         <ItemList />
+        <ItemList />
       </ul>
     </div>
   );

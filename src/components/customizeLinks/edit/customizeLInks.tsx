@@ -1,9 +1,9 @@
 import React from "react";
 import ListEmpty from "./listEmpty";
-import styles from "./listView.module.scss";
+import styles from "./CustomizeLinks.module.scss";
 import ListLinks from "./listLinks";
 
-const ListView = () => {
+const CustomizeLinks = () => {
   return (
     <div className={styles.customize}>
       <div className={styles.header}>
@@ -28,4 +28,4 @@ const ListView = () => {
   );
 };
 
-export default ListView;
+export default CustomizeLinks;

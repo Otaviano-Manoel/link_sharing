@@ -1,5 +1,5 @@
 import React from "react";
-import MobileView from "../mobileView/mobileView";
+import MobileView from "../customizeLinks/mobileView/mobileView";
 import Profile from "./profile";
 import styles from "./mainProfile.module.scss";
 

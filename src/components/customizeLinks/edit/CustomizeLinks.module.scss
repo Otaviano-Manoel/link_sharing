@@ -2,10 +2,11 @@
 @use "@/styles/mixin.scss" as *;
 
 .customize {
-  display: grid;
   border-radius: 12px;
-  grid-template-rows: auto auto auto;
   background-color: $white;
+  background-color: red;
+  height: 100%;
+  max-height: 100vh;
 
   .header {
     margin: 40px;
@@ -21,14 +22,16 @@
 
   .list {
     margin: 0px 40px 40px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
 
     .add {
       @include headingS($purple);
-      width: 100%;
       cursor: pointer;
       border: 1px solid $purple;
       border-radius: 8px;
-      height: 48px;
+      height: 46px;
       width: 100%;
 
       &:hover {
@@ -41,7 +44,6 @@
     @include flex(row, flex-end);
     padding: 24px 40px;
     border-top: 1px solid $borders;
-    width: 100%;
 
     .save {
       @include headingS($white);
