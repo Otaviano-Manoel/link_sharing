@@ -22,8 +22,8 @@ CREATE TABLE "Profile" (
 CREATE TABLE "Link" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "profileId" INTEGER NOT NULL,
+    "url" TEXT NOT NULL,
     "type" INTEGER NOT NULL,
-    "link" TEXT NOT NULL,
     CONSTRAINT "Link_profileId_fkey" FOREIGN KEY ("profileId") REFERENCES "Profile" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 

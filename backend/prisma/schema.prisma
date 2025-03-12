@@ -37,8 +37,8 @@ model Link{
   id Int @id @default(autoincrement())
   profile Profile @relation(fields: [profileId], references: [id])
   profileId Int
+  url String @unique
   type Int
-  link String
 }
 
 enum Role{
