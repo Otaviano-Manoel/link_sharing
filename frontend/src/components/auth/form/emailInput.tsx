@@ -1,8 +1,15 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import styles from "./formInput.module.scss";
 import Image from "next/image";
 
-const EmailInput = () => {
+interface InputAuth {
+  value: string;
+  valid: () => boolean;
+  setValue: Dispatch<React.SetStateAction<string>>;
+  updateStateValid: () => void;
+}
+
+const EmailInput = (props: InputAuth) => {
   return (
     <div>
       <label className={styles.label} htmlFor="email">
@@ -21,8 +28,10 @@ const EmailInput = () => {
             name="email"
             id="email"
             placeholder="e.g. alex@email.com"
+            value={props.value}
+            onChange={(e) => props.setValue(e.currentTarget.value)}
           />
-          <p className={`${styles.alert} ${true && styles.hidden}`}>
+          <p className={`${styles.alert} ${props.valid() && styles.hidden}`}>
             Can’t be empty
           </p>
         </span>

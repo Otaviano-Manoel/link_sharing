@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import EmailInput from "./form/emailInput";
@@ -5,8 +6,11 @@ import PasswordInput from "./form/passwordInput";
 import RepeatPassword from "./form/repeatPassword";
 import Link from "next/link";
 import styles from "./auth.module.scss";
+import UseSignUp from "@/hook/auth/useSignUp";
 
 const SignUp = () => {
+  const signup = UseSignUp();
+
   return (
     <div className={styles.container}>
       <Image
@@ -24,7 +28,12 @@ const SignUp = () => {
         </header>
 
         <form action="" className={styles.form}>
-          <EmailInput />
+          <EmailInput
+            value={signup.email.email}
+            setValue={signup.email.setEmail}
+            valid={signup.email.valid}
+            updateStateValid={signup.email.updateStateValid}
+          />
           <PasswordInput placeholder="At least 8 characters" />
           <RepeatPassword />
 
