@@ -1,9 +1,9 @@
 import React from "react";
-import Picture from "./elements/picture";
+import Picture from "./ui/picture";
 import styles from "./profile.module.scss";
-import InputName from "./elements/inputName";
-import InputLastName from "./elements/inputLastName";
-import InputEmail from "./elements/inputEmail";
+import InputName from "./ui/inputName";
+import InputLastName from "./ui/inputLastName";
+import InputEmail from "./ui/inputEmail";
 
 const Profile = () => {
   return (

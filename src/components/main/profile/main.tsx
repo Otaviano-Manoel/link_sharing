@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./main.module.scss";
-import Mobile from "./mobile/mobile";
-import Customize from "./customize/customize";
+import Profile from "./profile";
+import styles from "@/components/main/main.module.scss";
+import Mobile from "../mobile/mobile";
 
 const Main = () => {
   return (
     <main className={styles.main}>
       <Mobile />
-      <Customize />
+      <Profile />
     </main>
   );
 };

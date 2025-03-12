@@ -1,5 +1,6 @@
 @use "@/styles/variables.scss" as *;
 @use "@/styles/mixin.scss" as *;
+@use "@/components/main/footer.scss";
 
 .customize {
   border-radius: 12px;
@@ -38,24 +39,6 @@
       }
     }
   }
-
-  .footer {
-    @include flex(row, flex-end);
-    padding: 24px 40px;
-    border-top: 1px solid $borders;
-
-    .save {
-      @include headingS($white);
-      cursor: pointer;
-      padding: 11px 27px;
-      background-color: $purple;
-      border-radius: 8px;
-
-      &.disable {
-        opacity: 25%;
-      }
-    }
-  }
 }
 
 @media (max-width: $mobile) {
@@ -66,14 +49,6 @@
 
     .list {
       margin: 0px 24px 24px;
-    }
-
-    .footer {
-      padding: 16px;
-
-      .save {
-        width: 100%;
-      }
     }
   }
 }

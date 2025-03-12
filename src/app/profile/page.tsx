@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import styles from "./page.module.scss";
-import Nav from "@/components/nav/nav";
-import MainProfile from "@/components/profile/mainProfile";
+import Nav from "@/components/main/nav/nav";
+import Main from "@/components/main/profile/main";
 
 const Page = () => {
   return (
     <div className={styles.page}>
       <Nav />
-      <MainProfile />
+      <Main />
     </div>
   );
 };

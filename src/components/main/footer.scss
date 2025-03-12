@@ -1,0 +1,30 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.footer {
+  @include flex(row, flex-end);
+  padding: 24px 40px;
+  border-top: 1px solid $borders;
+
+  .save {
+    @include headingS($white);
+    cursor: pointer;
+    padding: 11px 27px;
+    background-color: $purple;
+    border-radius: 8px;
+
+    &.disable {
+      opacity: 25%;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .footer {
+    padding: 16px 16px 32px;
+
+    .save {
+      width: 100%;
+    }
+  }
+}

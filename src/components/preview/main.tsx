@@ -1,6 +1,6 @@
 import React from "react";
 import Preview from "./preview";
-import styles from "./mainPreview.module.scss";
+import styles from "./main.module.scss";
 import Link from "next/link";
 
 const MainPreview = () => {

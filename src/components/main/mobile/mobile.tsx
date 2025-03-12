@@ -15,10 +15,6 @@ const Mobile = () => {
               <Item />
               <Item />
               <Item />
-              <Item />
-              <Item />
-              <Item />
-              <Item />
             </ul>
           </div>
         )}

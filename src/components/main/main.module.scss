@@ -5,7 +5,9 @@
   display: grid;
   grid-template-columns: 0.7fr 1fr;
   column-gap: 24px;
-  margin: 0px 24px 24px;
+  height: auto;
+  max-height: 834px;
+  margin: 0px 24px;
 }
 
 @media (max-width: $tablet) {

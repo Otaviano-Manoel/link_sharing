@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./page.module.scss";
-import MainPreview from "@/components/preview/mainPreview";
+import MainPreview from "@/components/preview/main";
 import Image from "next/image";
 
 const Page = () => {
