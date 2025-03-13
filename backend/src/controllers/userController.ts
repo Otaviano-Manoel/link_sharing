@@ -41,18 +41,20 @@ export const authenticateUser = async (req: Request, res: Response) => {
     const user = await findUser(email);
 
     if (!user) {
-      res.status(400).json({ message: "User not found" });
+      res.status(400).json({ message: "User not found", success: false });
       return;
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
-      res.status(400).json({ message: "Invalid password" });
+      res.status(400).json({ message: "Invalid password", success: false });
       return;
     }
 
-    res.status(200).json({ message: "User authenticated successfully" });
+    res
+      .status(200)
+      .json({ message: "User authenticated successfully", success: true });
   } catch (error) {
     res.status(500).json({ message: "Error authenticating user" });
   }

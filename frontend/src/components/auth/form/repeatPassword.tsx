@@ -23,7 +23,7 @@ const RepeatPassword = (props: RepeatPasswordProps) => {
           />
           <input
             className={styles.input}
-            type="repeatPassword"
+            type="Password"
             name="repeatPassword"
             id="repeatPassword"
             placeholder="At least 8 characters"

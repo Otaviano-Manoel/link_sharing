@@ -1,18 +1,14 @@
 "use client";
-import React, { FormEvent } from "react";
+import React from "react";
 import EmailInput from "./form/emailInput";
 import PasswordInput from "./form/passwordInput";
 import Image from "next/image";
 import styles from "./auth.module.scss";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import UseLogin from "@/hook/auth/useLogin";
 
 const Login = () => {
-  const navigate = useRouter();
-  const goHome = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    navigate.push("/links");
-  };
+  const login = UseLogin();
 
   return (
     <div className={styles.container}>
@@ -32,9 +28,20 @@ const Login = () => {
           </p>
         </header>
 
-        <form action="" onSubmit={goHome} className={styles.form}>
-          <EmailInput />
-          <PasswordInput placeholder="Enter your password" />
+        <form onSubmit={login.handleSubmit} className={styles.form}>
+          <EmailInput
+            value={login.email.email}
+            setValue={login.email.setEmail}
+            valid={login.email.valid}
+            updateStateValid={login.email.updateStateValid}
+          />
+          <PasswordInput
+            placeholder="Enter your password"
+            value={login.password.password}
+            setValue={login.password.setPassword}
+            valid={login.password.valid}
+            updateStateValid={login.password.updateStateValid}
+          />
 
           <button className={styles.submit} type="submit">
             Login
