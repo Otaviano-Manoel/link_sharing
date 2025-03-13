@@ -3,13 +3,22 @@ import UsePassword from "./usePassword";
 import UseEmail from "./useEmail";
 import { useRouter } from "next/navigation";
 import { requestLogin } from "@/services/authService";
+import { useUserContext } from "@/context/userContext";
+import { defaultUser } from "@/interface/user";
 
 const UseLogin = () => {
   const email = UseEmail();
   const password = UsePassword();
+  const user = useUserContext();
 
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    user.setUser(defaultUser);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (submitted) {
@@ -32,7 +41,11 @@ const UseLogin = () => {
         password: password.password,
       });
       console.log("Logged in user:", response.data);
-      setSubmitted(response.data.success);
+      const success = response.data.success;
+      if (success) {
+        user.setUser({ email: email.email, logged: true });
+        setSubmitted(success);
+      }
     } catch (error) {
       console.error("Error logging in user:", error);
       setSubmitted(false);

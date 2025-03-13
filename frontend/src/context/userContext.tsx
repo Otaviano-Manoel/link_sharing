@@ -1,6 +1,7 @@
 "use client";
 
 import { User } from "@/interface/user";
+import { usePathname, useRouter } from "next/navigation";
 import {
   createContext,
   ReactNode,
@@ -24,6 +25,8 @@ interface UserProviderProps {
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setUserState] = useState<User>();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const json = localStorage.getItem(USER_LOCAL_STORAGE);
@@ -31,8 +34,13 @@ export const UserProvider = ({ children }: UserProviderProps) => {
 
     const user = JSON.parse(json) as User;
 
+    if (!user.logged && !(pathname === "/" || pathname === "/signup")) {
+      router.push("/");
+      return;
+    }
+
     setUserState(user);
-  }, []);
+  }, [pathname, router]);
 
   const setUser = (user: User) => {
     setUserState(user);
