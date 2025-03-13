@@ -3,16 +3,19 @@ import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./dropDown.module.scss";
 import { styledImage } from "@/constant/dynamicStyleMaskImage";
+import { DropDownAllItems } from "@/constant/dropDownDataItem";
+import { DropDownItem } from "@/interface/DropDownItem";
 
-const data = [
-  { value: "apple", label: "Maçã", img: "/icon-github.svg" },
-  { value: "banana", label: "Banana", img: "/icon-github.svg" },
-  { value: "orange", label: "Laranja", img: "/icon-github.svg" },
-];
+interface DropDownProps {
+  itemIndex: number;
+}
 
-const DropDown = () => {
+const DropDown = (props: DropDownProps) => {
+  const allData = DropDownAllItems;
   const [isOpen, setIsOpen] = useState(false);
-  const [options, setOptions] = useState(data[0]);
+  const [options, setOptions] = useState<DropDownItem>(
+    props.itemIndex === -1 ? allData[0] : allData[props.itemIndex]
+  );
 
   return (
     <div className={styles.container}>
@@ -27,12 +30,12 @@ const DropDown = () => {
           <div className={`${styles.select} ${isOpen && styles.active}`}>
             <Image
               className={styles.img}
-              src={options.img}
+              src={options.icon}
               alt=""
               height={20}
               width={20}
             />
-            <p className={styles.p}>{options.label}</p>
+            <p className={styles.p}>{options.name}</p>
 
             <Image
               className={styles.arrow}
@@ -45,11 +48,11 @@ const DropDown = () => {
         </button>
 
         <div className={`${styles.containerHidden} ${isOpen && styles.active}`}>
-          {data.map((element) => (
+          {allData.map((element) => (
             <button
-              key={element.label}
+              key={element.key}
               className={`${styles.option} ${
-                element.label === options.label ? styles.selected : ""
+                element.name === options.name ? styles.selected : ""
               }`}
               onClick={() => {
                 setOptions(element);
@@ -57,11 +60,11 @@ const DropDown = () => {
               }}
             >
               <div
-                style={styledImage(element.img)}
+                style={styledImage(element.icon)}
                 className={`${styles.img}`}
               />
 
-              <p className={styles.p}>{element.label}</p>
+              <p className={styles.p}>{element.name}</p>
             </button>
           ))}
         </div>

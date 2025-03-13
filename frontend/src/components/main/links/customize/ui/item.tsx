@@ -3,10 +3,17 @@ import React from "react";
 import DropDown from "./dropDown";
 import InputLink from "./inputLink";
 import styles from "./item.module.scss";
+import { Link } from "@/interface/link";
 
-const Item = () => {
+interface ItemProps {
+  key: string;
+  link: Link;
+  count: number;
+}
+
+const Item = (props: ItemProps) => {
   return (
-    <li className={styles.li}>
+    <li key={props.key} className={styles.li}>
       <div className={styles.title}>
         <h3 className={styles.h3}>
           <Image
@@ -16,16 +23,16 @@ const Item = () => {
             height={50}
             width={50}
           />
-          Link #2
+          Link #{props.count}
         </h3>
         <button className={styles.delete} type="button">
           Remove
         </button>
       </div>
 
-      <DropDown />
+      <DropDown itemIndex={props.link.type} />
 
-      <InputLink />
+      <InputLink url={props.link.url} />
     </li>
   );
 };

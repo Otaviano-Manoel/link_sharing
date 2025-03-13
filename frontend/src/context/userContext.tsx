@@ -40,7 +40,9 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     }
 
     setUserState(user);
-  }, [pathname, router]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const setUser = (user: User) => {
     setUserState(user);

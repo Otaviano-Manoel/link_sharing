@@ -59,6 +59,24 @@ export const createOrUpdateProfile = async (req: Request, res: Response) => {
   }
 };
 
+export const getProfile = async (req: Request, res: Response) => {
+  const { email } = req.body.user;
+  try {
+    const profile = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+      include: {
+        profile: true,
+      },
+    });
+
+    res.status(200).json({ profile: profile?.profile });
+  } catch (error) {
+    res.status(500).json({ message: "No user found." });
+  }
+};
+
 export const findProfile = async (userId: number) => {
   return await prisma.profile.findUnique({
     where: {
