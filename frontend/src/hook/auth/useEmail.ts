@@ -4,7 +4,9 @@ import { useState } from "react";
 
 const UseEmail = () => {
   const [email, setEmail] = useState("");
-  const [stateValid, setStateValid] = useState<StateValid>(StateValid.NOTHING);
+  const [stateValid, setStateValid] = useState<StateValid>(
+    StateValid.NOT_CHANGED
+  );
 
   const validEmail = (): boolean => {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -15,11 +17,8 @@ const UseEmail = () => {
     setStateValid(validEmail() ? StateValid.ACCEPT : StateValid.ERROR);
   };
 
-  const valid = () => {
-    return (
-      stateValid === StateValid.NOTHING || stateValid === StateValid.ACCEPT
-    );
-  };
+  const valid = (): boolean =>
+    stateValid === StateValid.NOT_CHANGED || stateValid === StateValid.ACCEPT;
 
   return { email, setEmail, valid, updateStateValid };
 };

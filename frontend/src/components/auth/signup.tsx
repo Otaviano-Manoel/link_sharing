@@ -1,15 +1,39 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import EmailInput from "./form/emailInput";
 import PasswordInput from "./form/passwordInput";
 import RepeatPassword from "./form/repeatPassword";
 import Link from "next/link";
 import styles from "./auth.module.scss";
 import UseSignUp from "@/hook/auth/useSignUp";
+import { User } from "@/interface/user";
 
 const SignUp = () => {
   const signup = UseSignUp();
+
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!allInputsValid()) return;
+
+    const jsonToCreateNewUser = {
+      email: signup.email.email,
+      password: signup.password.password,
+    };
+  };
+
+  const allInputsValid = () => {
+    signup.email.updateStateValid();
+    signup.password.updateStateValid();
+    signup.repeatPassword.updateStateValid(signup.password.password);
+
+    return (
+      signup.email.valid() &&
+      signup.password.valid() &&
+      signup.repeatPassword.valid()
+    );
+  };
 
   return (
     <div className={styles.container}>
@@ -27,15 +51,27 @@ const SignUp = () => {
           <p className={styles.p}>Let’s get you started sharing your links!</p>
         </header>
 
-        <form action="" className={styles.form}>
+        <form onSubmit={submit} className={styles.form}>
           <EmailInput
             value={signup.email.email}
             setValue={signup.email.setEmail}
             valid={signup.email.valid}
             updateStateValid={signup.email.updateStateValid}
           />
-          <PasswordInput placeholder="At least 8 characters" />
-          <RepeatPassword />
+          <PasswordInput
+            placeholder="At least 8 characters"
+            value={signup.password.password}
+            setValue={signup.password.setPassword}
+            valid={signup.password.valid}
+            updateStateValid={signup.password.updateStateValid}
+          />
+          <RepeatPassword
+            password={signup.password.password}
+            value={signup.repeatPassword.repeatPassword}
+            setValue={signup.repeatPassword.setRepeatPassword}
+            valid={signup.repeatPassword.valid}
+            updateStateValid={signup.repeatPassword.updateStateValid}
+          />
 
           <p className={styles.message}>
             Password must contain at least 8 characters

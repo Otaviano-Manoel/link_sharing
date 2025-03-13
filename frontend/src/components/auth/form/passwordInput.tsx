@@ -1,8 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./formInput.module.scss";
+import { InputAuth } from "@/interface/InputAuth";
 
-interface PasswordInputProps {
+interface PasswordInputProps extends InputAuth {
   placeholder: string;
 }
 
@@ -26,8 +27,12 @@ const PasswordInput = (props: PasswordInputProps) => {
             id="password"
             placeholder={props.placeholder}
             minLength={8}
+            value={props.value}
+            onChange={(e) => props.setValue(e.currentTarget.value)}
+            onInvalid={() => props.updateStateValid()}
+            onBlur={() => props.updateStateValid()}
           />
-          <p className={`${styles.alert} ${styles.hidden}`}>
+          <p className={`${styles.alert} ${props.valid() && styles.hidden}`}>
             Please check again
           </p>
         </span>

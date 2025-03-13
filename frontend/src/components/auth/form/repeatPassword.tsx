@@ -1,8 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./formInput.module.scss";
+import { InputAuth } from "@/interface/InputAuth";
 
-const RepeatPassword = () => {
+interface RepeatPasswordProps extends Omit<InputAuth, "updateStateValid"> {
+  password: string;
+  updateStateValid: (password: string) => void;
+}
+
+const RepeatPassword = (props: RepeatPasswordProps) => {
   return (
     <div>
       <label htmlFor="repeatPassword" className={styles.label}>
@@ -21,9 +27,10 @@ const RepeatPassword = () => {
             name="repeatPassword"
             id="repeatPassword"
             placeholder="At least 8 characters"
-            minLength={8}
+            onChange={(e) => props.setValue(e.currentTarget.value)}
+            onBlur={() => props.updateStateValid(props.password)}
           />
-          <p className={`${styles.alert} ${styles.hidden}`}>
+          <p className={`${styles.alert} ${props.valid() && styles.hidden}`}>
             Please check again
           </p>
         </span>

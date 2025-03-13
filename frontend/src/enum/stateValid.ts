@@ -1,5 +1,5 @@
 export enum StateValid {
-  NOTHING,
+  NOT_CHANGED,
   ERROR,
   ACCEPT,
 }
