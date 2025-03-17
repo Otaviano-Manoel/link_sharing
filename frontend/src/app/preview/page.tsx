@@ -1,12 +1,25 @@
 import React from "react";
 import styles from "./page.module.scss";
-import MainPreview from "@/components/preview/main";
 import Image from "next/image";
+import Link from "next/link";
+import Preview from "./components/preview";
 
 const Page = () => {
   return (
     <div className={styles.page}>
-      <MainPreview />
+      <div className={styles.container}>
+        <div className={styles.background} />
+        <nav className={styles.nav}>
+          <Link className={styles.link} href={""}>
+            Back to Editor
+          </Link>
+          <Link className={`${styles.link} ${styles.share}`} href={""}>
+            Share Link
+          </Link>
+        </nav>
+        <Preview />
+      </div>
+
       <p className={styles.p}>
         <Image
           className={styles.icon}

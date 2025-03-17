@@ -1,0 +1,54 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+@use "@/styles/footer.scss";
+
+.customize {
+  border-radius: 12px;
+  background-color: $white;
+
+  .header {
+    @include flex(column, flex-start, flex-start);
+    gap: 6px;
+    margin: 40px;
+
+    .title {
+      @include headingM($grey-dark);
+    }
+
+    .p {
+      @include bodyM($grey);
+    }
+  }
+
+  .list {
+    margin: 0px 40px 40px;
+    max-height: 540px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    row-gap: 24px;
+
+    .add {
+      @include headingS($purple);
+      cursor: pointer;
+      border: 1px solid $purple;
+      border-radius: 8px;
+      padding: 11px 27px;
+
+      &:hover {
+        background-color: $purple-light;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .customize {
+    .header {
+      margin: 24px 24px 40px;
+    }
+
+    .list {
+      margin: 0px 24px 24px;
+    }
+  }
+}

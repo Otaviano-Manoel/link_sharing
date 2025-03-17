@@ -1,0 +1,45 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+@use "@/styles/footer.scss";
+.container {
+  background-color: $white;
+  padding: 40px 40px 0px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+
+  .h1 {
+    @include headingM($grey-dark);
+  }
+
+  .p {
+    @include bodyM($grey);
+    margin-bottom: 40px;
+  }
+
+  .form {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    .inputs {
+      @include flex(column, auto, auto);
+      padding: 20px;
+      gap: 12px;
+      border-radius: 12px;
+      background-color: $grey-light;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    .form {
+      .footer {
+        padding: 16px;
+        .save {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
