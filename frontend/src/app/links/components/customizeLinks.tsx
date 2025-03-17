@@ -2,8 +2,11 @@ import React from "react";
 import ListEmpty from "./listEmpty";
 import styles from "./customize.module.scss";
 import List from "./list";
+import UseCustomizeLinks from "../hook/useCustomizeLinks";
 
 const CustomizeLinks = () => {
+  const customizeLinks = UseCustomizeLinks();
+
   return (
     <div className={styles.customize}>
       <div className={styles.header}>
@@ -14,16 +17,22 @@ const CustomizeLinks = () => {
         </p>
       </div>
       <div className={styles.list}>
-        <button className={styles.add} type="button">
+        <button
+          className={styles.add}
+          type="button"
+          onClick={customizeLinks.addLink}
+        >
           + Add new link
         </button>
-        {true ? <ListEmpty /> : <List />}
+        {customizeLinks.isListEmpty() ? <ListEmpty /> : <List />}
       </div>
       <div className={styles.footer}>
         <button
-          className={`${styles.save} ${true && styles.disable}`}
+          className={`${styles.save} ${
+            customizeLinks.isListEmpty() && styles.disable
+          }`}
           type="button"
-          disabled={true}
+          disabled={customizeLinks.isListEmpty()}
           onClick={() => console.log("click")}
         >
           Save

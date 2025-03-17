@@ -23,11 +23,11 @@ const MobileView = () => {
                 >
                   <div
                     style={styledMaskImage("/icon-linkedin.svg")}
-                    className={styles.icon}
+                    className={styles.iconItem}
                   />
-                  <p className={styles.p}>GitHub</p>
+                  <p className={styles.pItem}>GitHub</p>
                   <Image
-                    className={styles.arrow}
+                    className={styles.arrowItem}
                     src={"/icon-arrow-right.svg"}
                     alt=""
                     height={50}

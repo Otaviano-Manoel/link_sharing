@@ -41,7 +41,6 @@ const UseLogin = () => {
         email: email.email,
         password: password.password,
       });
-      console.log("Logged in user:", response.data);
       const success = response.data.success;
       if (success) {
         user.setUser({ email: email.email, logged: true });

@@ -29,6 +29,7 @@
 
         .delete {
           @include headingS($grey);
+          cursor: pointer;
         }
       }
 

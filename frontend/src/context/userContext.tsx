@@ -1,5 +1,6 @@
 "use client";
 
+import { Profile } from "@/interface/profile";
 import { User } from "@/interface/user";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -15,6 +16,7 @@ export const USER_LOCAL_STORAGE = "user";
 interface UserContextType {
   user?: User;
   setUser: (user: User) => void;
+  setProfile: (profile: Profile) => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -47,11 +49,16 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   const setUser = (user: User) => {
     setUserState(user);
 
-    localStorage.setItem(USER_LOCAL_STORAGE, JSON.stringify(user));
+    //localStorage.setItem(USER_LOCAL_STORAGE, JSON.stringify(user));
+  };
+
+  const setProfile = (profile: Profile) => {
+    if (!user) return;
+    setUser({ ...user, profile });
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, setProfile }}>
       {children}
     </UserContext.Provider>
   );

@@ -62,18 +62,19 @@
           border-radius: 8px;
           column-gap: 8px;
           cursor: pointer;
+          align-items: center;
 
-          .icon {
+          .iconItem {
             width: 16px;
             height: 16px;
             background-color: $white;
           }
 
-          .p {
+          .pItem {
             @include bodyS($white);
           }
 
-          .arrow {
+          .arrowItem {
             justify-self: flex-end;
             width: 16px;
             height: 16px;

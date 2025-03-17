@@ -2,14 +2,15 @@ import React from "react";
 import styles from "./list.module.scss";
 import Image from "next/image";
 import DropDown from "./dropDown";
+import UseList from "../hook/useList";
 
 const List = () => {
-  const list = [];
+  const list = UseList();
 
   return (
     <div className={styles.container}>
       <ul className={styles.links}>
-        {list.map((link, index) => (
+        {list.links.map((link, index) => (
           <li key={index} className={styles.li}>
             <div className={styles.title}>
               <h3 className={styles.h3}>
@@ -22,12 +23,20 @@ const List = () => {
                 />
                 Link #{index + 1}
               </h3>
-              <button className={styles.delete} type="button">
+              <button
+                className={styles.delete}
+                type="button"
+                onClick={() => list.removeItem(index)}
+              >
                 Remove
               </button>
             </div>
 
-            <DropDown />
+            <DropDown
+              link={link}
+              index={index}
+              handleChangeStateLinks={list.handleChangeStateLinks}
+            />
 
             <div className={styles.inputLink}>
               <label className={styles.label} htmlFor="link">
@@ -47,6 +56,13 @@ const List = () => {
                   name="link"
                   id="link"
                   placeholder="e.g. https://www.github.com/johnappleseed"
+                  value={link.url}
+                  onChange={(e) =>
+                    list.handleChangeStateLinks(index, {
+                      ...link,
+                      url: e.currentTarget.value,
+                    })
+                  }
                 />
 
                 <p className={`${styles.alert} ${false ? "" : styles.error}`}>

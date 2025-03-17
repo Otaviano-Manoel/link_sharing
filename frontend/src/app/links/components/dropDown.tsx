@@ -5,13 +5,20 @@ import styles from "./dropDown.module.scss";
 import { styledMaskImage } from "@/constant/dynamicStyleMaskImage";
 import { DropDownAllItems } from "@/constant/dropDownDataItem";
 import { DropDownItem } from "@/interface/DropDownItem";
+import { Link } from "@/interface/link";
 
-interface DropDownProps {}
+interface DropDownProps {
+  link: Link;
+  index: number;
+  handleChangeStateLinks: (index: number, link: Link) => void;
+}
 
 const DropDown = (props: DropDownProps) => {
   const allData = DropDownAllItems;
   const [isOpen, setIsOpen] = useState(false);
-  const [options, setOptions] = useState<DropDownItem>(allData[0]);
+  const [options, setOptions] = useState<DropDownItem>(
+    allData[props.link.type === -1 ? 0 : props.link.type]
+  );
 
   return (
     <div className={styles.container}>
@@ -51,7 +58,11 @@ const DropDown = (props: DropDownProps) => {
                 element.name === options.name ? styles.selected : ""
               }`}
               onClick={() => {
-                setOptions(element);
+                props.handleChangeStateLinks(props.index, {
+                  ...props.link,
+                  type: element.key,
+                });
+                setOptions(allData[element.key]);
                 setIsOpen(false);
               }}
             >

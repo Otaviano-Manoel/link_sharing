@@ -10,6 +10,8 @@ export default function LoginPage() {
   const login = UseLogin();
 
   return (
+    <div></div>
+    /*
     <div className={styles.page}>
       <Image
         className={styles.logo}
@@ -17,6 +19,7 @@ export default function LoginPage() {
         alt={""}
         width={50}
         height={50}
+        priority
       />
 
       <div className={styles.containerForm}>
@@ -55,6 +58,6 @@ export default function LoginPage() {
           </p>
         </form>
       </div>
-    </div>
+    </div>*/
   );
 }
