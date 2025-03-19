@@ -1,8 +1,8 @@
 import React from "react";
 import ListEmpty from "./listEmpty";
 import styles from "./customize.module.scss";
-import List from "./list";
 import UseCustomizeLinks from "../hook/useCustomizeLinks";
+import Sortable from "./Sortable/sortable";
 
 const CustomizeLinks = () => {
   const customizeLinks = UseCustomizeLinks();
@@ -24,7 +24,7 @@ const CustomizeLinks = () => {
         >
           + Add new link
         </button>
-        {customizeLinks.isListEmpty() ? <ListEmpty /> : <List />}
+        {customizeLinks.isListEmpty() ? <ListEmpty /> : <Sortable />}
       </div>
       <div className={styles.footer}>
         <button

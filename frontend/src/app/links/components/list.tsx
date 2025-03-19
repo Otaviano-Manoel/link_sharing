@@ -3,13 +3,16 @@ import styles from "./list.module.scss";
 import Image from "next/image";
 import DropDown from "./dropDown";
 import UseList from "../hook/useList";
+import Sortable from "./Sortable/sortable";
+import { SortableItemProps } from "./Sortable/sortableItem";
 
 const List = () => {
   const list = UseList();
 
   return (
     <div className={styles.container}>
-      <ul className={styles.links}>
+      {/**/}
+      {/*<ul className={styles.links}>
         {list.links.map((link, index) => (
           <li key={index} className={styles.li}>
             <div className={styles.title}>
@@ -72,7 +75,7 @@ const List = () => {
             </div>
           </li>
         ))}
-      </ul>
+      </ul>*/}
     </div>
   );
 };

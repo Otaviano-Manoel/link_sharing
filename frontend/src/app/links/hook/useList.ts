@@ -1,5 +1,5 @@
 import { useUserContext } from "@/context/userContext";
-import { Link } from "@/interface/link";
+import { ILink } from "@/interface/link";
 import { useEffect, useState } from "react";
 
 const UseList = () => {
@@ -16,7 +16,7 @@ const UseList = () => {
     console.log(user.user);
   }, [user]);
 
-  const handleChangeStateLinks = (index: number, link: Link) => {
+  const handleChangeStateLinks = (index: number, link: ILink) => {
     const newLinks = [...links];
     newLinks[index] = link;
     setLinks(newLinks);

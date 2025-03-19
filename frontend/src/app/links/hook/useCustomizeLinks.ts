@@ -12,6 +12,7 @@ const UseCustomizeLinks = () => {
     const links = user.user.profile.links;
     links.push(defaultLink);
     user.setProfile({ links: links });
+    console.log("add");
   };
 
   return { isListEmpty, addLink };

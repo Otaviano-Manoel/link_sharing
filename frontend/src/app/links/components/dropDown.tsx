@@ -3,20 +3,20 @@ import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./dropDown.module.scss";
 import { styledMaskImage } from "@/constant/dynamicStyleMaskImage";
-import { DropDownAllItems } from "@/constant/dropDownDataItem";
-import { DropDownItem } from "@/interface/DropDownItem";
-import { Link } from "@/interface/link";
+import { DropDownItems } from "@/constant/dropDownDataItem";
+import { DataSocialLink } from "@/interface/DropDownItem";
+import { ILink } from "@/interface/link";
 
 interface DropDownProps {
-  link: Link;
+  link: ILink;
   index: number;
-  handleChangeStateLinks: (index: number, link: Link) => void;
+  handleChangeStateLinks: (index: number, link: ILink) => void;
 }
 
 const DropDown = (props: DropDownProps) => {
-  const allData = DropDownAllItems;
+  const allData = DropDownItems;
   const [isOpen, setIsOpen] = useState(false);
-  const [options, setOptions] = useState<DropDownItem>(
+  const [options, setOptions] = useState<DataSocialLink>(
     allData[props.link.type === -1 ? 0 : props.link.type]
   );
 

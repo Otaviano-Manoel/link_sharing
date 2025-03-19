@@ -1,5 +1,5 @@
-export interface DropDownItem {
-  key: number;
+export interface DataSocialLink {
+  id: string;
   icon: string;
   name: string;
 }

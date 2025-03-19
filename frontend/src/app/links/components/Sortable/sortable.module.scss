@@ -1,0 +1,8 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixin.scss" as *;
+
+.container {
+  overflow: auto;
+  @include flex(column, center, stretch);
+  gap: 24px;
+}
