@@ -2,20 +2,27 @@
 import React, { useState } from "react";
 import styles from "./dropDown.module.scss";
 import { styledMaskImage } from "@/constant/dynamicStyleMaskImage";
-import { DropDownItems } from "@/constant/dropDownDataItem";
+import { listIconSocial } from "@/constant/listIconSocial";
 import Image from "next/image";
+import { ILink } from "@/interface/link";
 
-const DropDown = () => {
-  const data = DropDownItems;
-  const [selected, setSelected] = useState(data[0]);
+interface DropDownProps {
+  link: ILink;
+  onUpdateLink: (link: ILink) => void;
+}
+
+const DropDown = (props: DropDownProps) => {
+  const data = listIconSocial;
+  const [index, setIndex] = useState(props.link.type);
   const [isOpen, setIsOpen] = useState(false);
+  const selected = () => data[index];
 
   const item = (
     url: string,
     label: string,
     className: string,
     onClick?: () => void,
-    key?: string
+    key?: number
   ): React.ReactNode => {
     return (
       <div key={key} className={className} onClick={onClick}>
@@ -35,7 +42,7 @@ const DropDown = () => {
         className={`${styles.trigger} ${isOpen && styles.active}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {item(selected.icon, selected.name, styles.item, () =>
+        {item(selected().icon, selected().name, styles.item, () =>
           console.log("click")
         )}
         <Image
@@ -47,18 +54,17 @@ const DropDown = () => {
         />
       </div>
       <div className={`${styles.menu} ${!isOpen && styles.hidden}`}>
-        {data.map((e) =>
+        {data.map((e, i) =>
           item(
             e.icon,
             e.name,
-            `${styles.item} ${styles.inMenu} ${
-              e.id === selected.id && styles.select
-            }`,
+            `${styles.item} ${styles.inMenu} ${i === index && styles.select}`,
             () => {
-              setSelected(e);
+              props.onUpdateLink({ ...props.link, type: i });
+              setIndex(i);
               setIsOpen(false);
             },
-            e.id
+            i
           )
         )}
       </div>

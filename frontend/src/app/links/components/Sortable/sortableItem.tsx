@@ -44,7 +44,7 @@ export function SortableItem(props: SortableItemProps) {
         </button>
       </div>
 
-      <DropDown />
+      <DropDown link={props.link} onUpdateLink={props.onUpdateLink} />
 
       <div className={styles.inputLink}>
         <label className={styles.label} htmlFor="link">

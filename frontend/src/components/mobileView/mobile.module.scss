@@ -55,6 +55,7 @@
         overflow-y: auto;
 
         .item {
+          border: 1px solid $borders;
           display: grid;
           grid-template-columns: auto auto 1fr;
           width: 100%;

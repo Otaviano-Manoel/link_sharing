@@ -6,6 +6,6 @@ export interface ILink {
 
 export const defaultLink: ILink = {
   id: "",
-  type: -1,
+  type: 0,
   url: "",
 };
