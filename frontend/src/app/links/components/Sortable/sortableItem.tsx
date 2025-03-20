@@ -8,6 +8,8 @@ import DropDown from "./dropDown/dropDown";
 
 export interface SortableItemProps {
   link: ILink;
+  count: number;
+  onUpdateLink: (link: ILink) => void;
 }
 
 export function SortableItem(props: SortableItemProps) {
@@ -22,18 +24,20 @@ export function SortableItem(props: SortableItemProps) {
   return (
     <div className={styles.item} style={style}>
       <div className={styles.title}>
-        <h3 className={styles.h3}>
+        <h3
+          className={styles.h3}
+          ref={setNodeRef}
+          {...attributes}
+          {...listeners}
+        >
           <Image
-            ref={setNodeRef}
-            {...attributes}
-            {...listeners}
             className={styles.icon}
             src={"/icon-drag-and-drop.svg"}
             alt=""
             height={50}
             width={50}
           />
-          Link #{Number(props.link.id) + 1}
+          Link #{props.count + 1}
         </h3>
         <button className={styles.delete} type="button">
           Remove
@@ -62,6 +66,10 @@ export function SortableItem(props: SortableItemProps) {
             name="link"
             id="link"
             placeholder="e.g. https://www.github.com/johnappleseed"
+            value={props.link.url}
+            onChange={(e) =>
+              props.onUpdateLink({ ...props.link, url: e.currentTarget.value })
+            }
           />
 
           <p className={`${styles.alert} ${false ? "" : styles.error}`}>

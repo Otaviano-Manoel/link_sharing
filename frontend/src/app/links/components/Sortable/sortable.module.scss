@@ -3,6 +3,6 @@
 
 .container {
   overflow: auto;
-  @include flex(column, center, stretch);
+  @include flex(column, flex-start, stretch);
   gap: 24px;
 }

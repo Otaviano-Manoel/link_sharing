@@ -23,8 +23,28 @@ const UseSortableComponent = () => {
   useEffect(() => {
     if (!user.user || !user.user.profile) return;
 
-    setItems(user.user.profile.links.map((e, i) => ({ ...e, id: String(i) })));
+    if (user.user.profile.links.length !== items?.length) {
+      setItems(user.user.profile.links);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.user]);
+
+  useEffect(() => {
+    if (!items) return;
+
+    user.setProfile({ links: items });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
+
+  const onUpdateLink = (link: ILink) => {
+    if (!items) return;
+
+    const links = [...items];
+    const index = links.findIndex((e) => e.id === link.id);
+    links[index] = link;
+    setItems(links);
+  };
 
   const handleDragEnd = (event: DragEndEvent) => {
     if (!items) return;
@@ -35,8 +55,9 @@ const UseSortableComponent = () => {
       setItems((items) => {
         const oldIndex = items!.findIndex((x) => x.id == active.id);
         const newIndex = items!.findIndex((x) => x.id === over.id);
+        const newArray = arrayMove(items!, oldIndex, newIndex);
 
-        return arrayMove(items!, oldIndex, newIndex);
+        return newArray;
       });
     }
   };
@@ -45,6 +66,7 @@ const UseSortableComponent = () => {
     items,
     sensors,
     handleDragEnd,
+    onUpdateLink,
   };
 };
 

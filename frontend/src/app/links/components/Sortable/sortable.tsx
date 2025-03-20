@@ -23,8 +23,13 @@ const Sortable = () => {
             items={sortable.items}
             strategy={verticalListSortingStrategy}
           >
-            {sortable.items.map((item) => (
-              <SortableItem key={item.id} link={item} />
+            {sortable.items.map((item, i) => (
+              <SortableItem
+                key={item.id}
+                link={item}
+                count={i}
+                onUpdateLink={sortable.onUpdateLink}
+              />
             ))}
           </SortableContext>
         )}
